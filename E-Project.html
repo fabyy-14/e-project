@@ -1,0 +1,1482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D'CAKE </title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+
+        background-color: rgb(253, 244, 227);
+
+    }
+
+    .navbar {
+        margin: 10px;
+        background: linear-gradient(90deg, #e18689, #f3c1c3, #f4a6a9);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        box-shadow:
+            0 10px 20px rgba(0, 0, 0, 0.6),
+            0 6px 6px rgba(0, 0, 0, 0.5);
+
+    }
+
+    .navbar-brand {
+        color: rgb(94, 25, 42);
+        font-weight: bold;
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+
+    .navbar-brand:hover {
+        transform: scale(1.1);
+        color: rgb(227, 82, 82);
+    }
+
+    .navbar-toggler {
+        border: none;
+
+    }
+
+    .logo {
+        height: 80px;
+        box-shadow: 0 0 10px #ff69;
+        margin-left: 20px;
+
+    }
+
+    .navbar .logo:hover {
+        transform: rotate(6deg);
+    }
+
+    .dropdown-menu {
+        background-color: #f0bbbc;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .dropdown-item {
+        font-weight: bold;
+    }
+
+    .dropdown-item:hover {
+        background-color: #ebe7e6;
+    }
+
+    .offcanvas {
+        border-radius: 12px;
+        box-shadow: 0 0 12px rgba(239, 145, 159, 0.4);
+    }
+
+    .offcanvas-title {
+        font-size: 22px;
+        color: #ff4076;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+
+    .nav-item {
+        font-weight: bold;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: 90vh;
+        object-fit: cover;
+    }
+
+    .about-heading {
+        font-family: 'Lucida Handwriting', cursive;
+        margin-bottom: 10px;
+    }
+
+    .about-line {
+        width: 80px;
+        height: 4px;
+        background-color: rgb(193, 31, 58);
+        border: none;
+        margin: 0 auto 20px auto;
+        border-radius: 2px;
+    }
+
+    button {
+        background-color: #e18689;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .accordion-header {
+        font-family: 'Lucida Handwriting', cursive;
+        color: rgb(94, 25, 42);
+
+    }
+
+    .accordion-item {
+        background-color: #fff;
+        padding: 9px;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .accordion-item button,
+    .accordion-item h2 {
+        font-family: 'Lora', serif;
+        font-style: italic;
+        font-weight: bold;
+        font-size: large;
+        color: rgb(94, 25, 42);
+
+
+    }
+
+    .accordion-body {
+        font-weight: 500;
+
+    }
+
+    .ap {
+        font-style: italic;
+        font-size: large;
+    }
+
+    .text {
+
+        margin: 20px;
+    }
+
+    section.home {
+        width: 100%;
+        padding: 40px 20px;
+        font-family: "Poppins", sans-serif;
+        color: #333;
+    }
+
+    .big-div-one,
+    .big-div-two {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 0 30px;
+
+
+    }
+
+    .our {
+        flex: 1 1 45%;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .our:hover {
+        transform: translateY(-5px);
+    }
+
+    .our h2 {
+
+        font-family: 'Lora', serif;
+        font-style: italic;
+        font-weight: bold;
+        color: rgb(159, 34, 65);
+    }
+
+    .our p {
+        color: #020202;
+        font-weight: 200;
+        font-size: 110%;
+
+    }
+
+    .products {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 100%;
+        overflow: hidden;
+
+    }
+
+    .scroll {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        flex: 1;
+        padding: 8px;
+    }
+
+    .product-card {
+        flex: 0 0 220px;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 10px;
+        scroll-snap-align: start;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 190px;
+        object-fit: cover;
+        border-radius: 6px;
+        cursor: pointer;
+
+    }
+
+    .product-card h3 {
+        margin: 9px 0 4px;
+        font-size: 1.2rem;
+        font-family: 'Lora', serif;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    .product-card p {
+        margin: 2px 0;
+        font-size: 1rem;
+
+    }
+
+    .product-card button {
+        margin-top: 6px;
+        width: 100%;
+        padding: 8px;
+        border: none;
+        border-radius: 6px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button.prev,
+    button.next {
+        border: none;
+        color: #fff;
+        border-radius: 40px;
+        cursor: pointer;
+        font-size: 20px;
+
+    }
+
+    .tittle {
+        font-family: 'Lucida Handwriting', cursive;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .line {
+        width: 100px;
+        height: 4px;
+        background-color: rgb(193, 31, 58);
+        border: none;
+        margin: 0 auto 20px auto;
+        border-radius: 2px;
+    }
+
+    #contact {
+        padding: 30px;
+        margin: 0 40px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #contact h2 {
+        color: #080808;
+        margin-bottom: 20px;
+        font-family: 'Lucida Handwriting', cursive;
+        text-align: center;
+
+    }
+
+    #contact p {
+        font-size: 20px;
+        margin: 8px 0;
+    }
+
+    .map-container {
+        margin-top: 20px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    #events {
+        padding: 40px;
+        font-family: Arial, sans-serif;
+
+    }
+
+    #events h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        font-family: 'Lucida Handwriting', cursive;
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .event-nav {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .event-nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #c96b7c;
+        transition: 0.3s;
+        font-size: large;
+    }
+
+    .event-nav a:hover {
+        color: #333;
+    }
+
+    .event-section h3 {
+        margin-bottom: 20px;
+        font-family: 'Lora', serif;
+        font-style: italic;
+        font-weight: bold;
+        font-size: 2rem;
+        color: rgb(159, 35, 66);
+        padding-left: 10px;
+        border-left: 4px solid #ff758c;
+
+    }
+
+    .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+    }
+
+    .product-cards {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        text-align: center;
+        width: 90%;
+        margin-bottom: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    }
+
+    .product-cards:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-cards img {
+        width: 100%;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .product-cards button {
+        margin: 5px;
+        padding: 8px 14px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .zoom {
+        background: #434343;
+        color: #fff;
+    }
+
+    .zoom:hover {
+        background: #0b0b0b;
+    }
+
+    .product-cards h4 {
+        margin-top: 20px;
+        font-family: 'Lora', serif;
+        font-weight: bold;
+        font-style: italic;
+
+    }
+
+    .zoom-modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .zoom-modal img {
+        max-width: 80%;
+        max-height: 80%;
+        border-radius: 10px;
+        box-shadow: 0 0 20px #fff;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .order:hover,
+    .readmore:hover {
+        background: #e57578;
+    }
+
+    .btn {
+        background-color: #c96b7c;
+        color: white;
+        padding: 10px;
+        font-weight: bold;
+
+    }
+
+    .btn:hover {
+        background-color: #cc5b6f;
+        color: white;
+    }
+
+    .footer {
+        background: #2c2c2c;
+        color: #f5f5f5;
+        padding: 30px 20px;
+        font-family: 'Segoe UI', sans-serif;
+        font-size: 14px;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .footer-box {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+    }
+
+    .footer-box h3 {
+        color: #ffb6c1;
+        border-bottom: 1px solid #555;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+    }
+
+    .footer-box ul {
+        list-style: none;
+        padding: 0;
+        line-height: 1.8;
+    }
+
+    .footer-box ul li a {
+        color: #ddd;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .footer-box ul li a:hover {
+        color: #ffb6c1;
+    }
+
+    .footer-box iframe {
+        border: 0;
+        border-radius: 8px;
+    }
+
+    .social-links {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .social-links a {
+        color: #ffb6c1;
+        margin: 0 10px;
+        font-size: 18px;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+        color: #fff;
+    }
+
+    .footer-copy {
+        text-align: center;
+        margin-top: 15px;
+        font-size: 12px;
+        color: #aaa;
+    }
+
+    .border {
+        background-color: #fff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+        font-family: 'Lora', serif;
+        font-style: italic;
+        font-weight: bold;
+        color: rgb(159, 23, 57);
+        font-weight: 700;
+        margin-bottom: 15px;
+    }
+
+    h5 {
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .form-control,
+    .form-select {
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #dc3545;
+        box-shadow: 0 0 0 0.15rem rgba(220, 53, 69, 0.25);
+    }
+
+    .btn-danger {
+        background-color: #c96b7c;
+        color: white;
+        border: none;
+    }
+
+    .btn-danger:hover {
+        background-color: #cd818f;
+    }
+
+    .btn-success {
+        border-radius: 6px;
+    }
+
+    .step {
+        animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* 1. MOBILE DEFAULT (Smallest screens up to 480px) */
+.carousel-item > img {
+    width: 100%;
+    height: 50vh; /* Original mobile height */
+    object-fit: cover;
+}
+
+/* 2. TABLETS (481px to 1024px) */
+@media screen and (min-width: 481px) {
+    .carousel-item > img {
+        height: 65vh; /* Slightly taller for tablets */
+    }
+}
+
+/* 3. DESKTOPS (1025px and wider) */
+@media screen and (min-width: 1025px) {
+    .carousel-item > img {
+        height: 80vh; /* Full cinematic height for large screens */
+    }
+}
+
+</style>
+
+<body>
+    <!-- navbar (1)-->
+    <nav class="navbar " id="home">
+        <div class="container-fluid">
+            <img src="logo.png" alt="" class="logo">
+            <a class="navbar-brand fw-bold" href="#">𝑫 𝑪𝒂𝒌𝒆's</a>
+            <div class="d-flex align-items-center">
+                <!-- Create Account Button -->
+                <button class="btn  me-3" onclick="openCreateAccountForm()">
+                    Create Account
+                </button>
+
+                <button class="navbar-toggler " type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar " aria-label="Toggle navigation ">
+                    <span class="navbar-toggler-icon "></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                    aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#home">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#about">About Us </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#products"> All Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#footerr">Contact us</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Products by Event
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#birthday">Birthday Cakes</a></li>
+                                    <hr class="dropdown-divider">
+                                    <li><a class="dropdown-item" href="#anniversary">Anniversary Cakes</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#engagement">Engagement Cakes</a></li>
+                                    <hr class="dropdown-divider">
+                                    <li><a class="dropdown-item" href="#marriage">Marriage Cakes</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+    </nav>
+    <!-- crousel -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                aria-label="Slide 4"></button>
+
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="img4.jpeg" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Birthday Cake</h5>
+                    <p>Some delicious varietes of birthday cakes .</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="crousel3.jpg" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Berry Pastery Food Cake </h5>
+                    <p>From birthdays to engagements, our cakes make every occasion unforgettable.</p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img11.jpg" class="d-block w-100" alt="..." class="bigimg">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>A Cake for Every Craving</h5>
+                    <p>Chocolate, vanilla, cherry-topped or floral — explore our delicious range of party-perfect cakes.
+                    </p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="fernando-dantas-l9EtbJ9r8Q0-unsplash.jpg" class="d-block w-100" alt="..." class="bigimg">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Whimsical Elegance</h5>
+                    <p>A dreamy swirl of purple frosting, butterflies, and sparkle — perfect for garden parties and
+                        birthdays.</p>
+                </div>
+            </div>
+
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <!-- about us -->
+    <section id="about">
+
+        <div class="container my-5">
+            <div class="row align-items-center">
+                <!-- Accordion Section -->
+                <div class="col-md-6">
+                    <div class="accordion" id="cakeAccordion">
+                        <div class="about-section text-center">
+                            <h1 class="about-heading">About Us</h1>
+                            <hr class="about-line">
+                        </div>
+                        <div class="text">
+                            <h3>𝑾𝒆 𝒉𝒂𝒗𝒆 𝒂𝒍𝒐𝒕 𝒐𝒇 𝒅𝒆𝒍𝒊𝒄𝒊𝒐𝒖𝒔 𝒄𝒂𝒌𝒆 𝒗𝒂𝒓𝒊𝒆𝒕𝒆𝒔:</h3>
+                            <p class="ap">Our bakery is proud to offer an exquisite array of cakes designed to satisfy
+                                every
+                                craving,
+                                from the
+                                traditional to the uniquely indulgent.chocolate lover can delight in our rich double
+                                fudge
+                                devil's
+                                food
+                                cake
+                                or the classic german chocolate-pecan filling.
+                            </p>
+                            <button type="button" class="readmore">Read More</button>
+                        </div>
+
+                        <!-- Accordion 1 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne">
+                                    Foundation
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show"
+                                data-bs-parent="#cakeAccordion">
+                                <div class="accordion-body">
+                                    The foundation of any truly delicious cake starts with fresh,
+                                    high-quality
+                                    ingredients.
+                                    While creative frostings and intricate decorations can elevate a dessert, the core
+                                    flavor and texture
+                                    rely on simple components like quality butter, fresh eggs, fine flour, and pure
+                                    sugar."
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 2 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo">
+                                    Mission
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#cakeAccordion">
+                                <div class="accordion-body">
+                                    Our mission extends
+                                    beyond baking delicious cakes... it drives us to innovate, inspire, and deliver
+                                    excellence in everything
+                                    we do, embracing a culture of teamwork, innovation, and excellence". This emphasizes
+                                    a
+                                    commitment to
+                                    quality and a strong company culture as the basis for their products.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion 3 -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree">
+                                    Vision
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#cakeAccordion">
+                                <div class="accordion-body">
+                                    "Our vision is to 'be a part of every celebration' By
+                                    focusing on every
+                                    component of our value chain, our customers, suppliers, and we ensure the sweet
+                                    success
+                                    of every
+                                    celebration we are a part of".
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Image Section -->
+                <div class="col-md-6 text-center">
+                    <img src="aboutus3.jpg" class="img-fluid rounded shadow" alt="Cake Image">
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- all products (3) -->
+    <section id="products">
+        <h1 class="tittle">All Products</h1>
+        <hr class="line">
+        <nav class="products">
+
+            <button class="prev">˂</button>
+            <div class="scroll">
+
+                <div class="product-card">
+                    <img src="all pro 9.jpg" alt="Product Image" class="zoomable">
+                    <h3>Chocolate Cakes</h3>
+                    <p><strong>Item Code:</strong> CK001</p>
+                    <p><strong>Price:</strong> Rs. 1500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <img src="vanilla-cake-4.webp" alt="Product Image" class="zoomable">
+                    <h3>Vanilla Cake</h3>
+                    <p><strong>Item Code:</strong> CK002</p>
+                    <p><strong>Price:</strong> Rs. 1000</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <img src="Strawberry-Jam-Cake_.jpg" alt="Product Image" class="zoomable">
+                    <h3>Strawberry Cake</h3>
+                    <p><strong>Item Code:</strong> CK003</p>
+                    <p><strong>Price:</strong> Rs. 2000</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <img src="red valvet.jpg" alt="Product Image" class="zoomable">
+                    <h3>Red Velvet Cake</h3>
+                    <p><strong>Item Code:</strong> CK004</p>
+                    <p><strong>Price:</strong> Rs. 2500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="all pro 5.jpg" alt="Product Image" class="zoomable">
+                    <h3>Mango Cake</h3>
+                    <p><strong>Item Code:</strong> CK005</p>
+                    <p><strong>Price:</strong> Rs. 1800</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="-Pistachio-Cake.png" alt="Product Image" class="zoomable">
+                    <h3>Pistachio Cake</h3>
+                    <p><strong>Item Code:</strong> CK006</p>
+                    <p><strong>Price:</strong> Rs.3000</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="Salted-Caramel-Cake-.png" alt="Product Image" class="zoomable">
+                    <h3>Salted Caramel Cake</h3>
+                    <p><strong>Item Code:</strong> CK007</p>
+                    <p><strong>Price:</strong> Rs. 2700</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="CoffeeCake_.jpg" alt="Product Image" class="zoomable">
+                    <h3>Coffee Cake</h3>
+                    <p><strong>Item Code:</strong> CK008</p>
+                    <p><strong>Price:</strong> Rs. 1900</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="frerro rocher cake 2.jpg" alt="Product Image" class="zoomable">
+                    <h3>Frero Rocher Cake</h3>
+                    <p><strong>Item Code:</strong> CK009</p>
+                    <p><strong>Price:</strong> Rs. 2400</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="cheesecake-8.jpg" alt="Product Image" class="zoomable">
+                    <h3>Cheese Cake</h3>
+                    <p><strong>Item Code:</strong> CK010</p>
+                    <p><strong>Price:</strong> Rs. 4000</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="Oreo-Ice-Cream-Cake-.jpeg" alt="Product Image" class="zoomable">
+                    <h3>Oreo Cake</h3>
+                    <p><strong>Item Code:</strong> CK011</p>
+                    <p><strong>Price:</strong> Rs. 1700</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+                <div class="product-card">
+                    <img src="black forest.webp" alt="Product Image" class="zoomable">
+                    <h3>Black Forest Cake</h3>
+                    <p><strong>Item Code:</strong> CK012</p>
+                    <p><strong>Price:</strong> Rs. 2200</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="order">
+                        Order
+                    </button>
+                </div>
+            </div>
+            <button class="next">></button>
+    </section>
+    </nav>
+    <!-- Home Section -->
+    <section class="home py-5">
+        <div class="container">
+
+            <!-- Row 1 -->
+            <div class="row g-4 mb-4">
+                <div class="col-lg-6 col-md-12">
+                    <div class="p-4 border rounded h-100">
+                        <h2>🌟 Our Promise</h2>
+                        <p>
+                            We believe every customer is part of our family. That’s why we promise to deliver the best
+                            taste,
+                            freshness, and service every time. Everyone who visits our shop becomes a part of our story,
+                            and we
+                            are proud to share our love for cakes with you.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="p-4 border rounded h-100">
+                        <h2>🌟 Our Shop</h2>
+                        <p>
+                            Our shop is a place where taste meets creativity. From classic flavors to modern designs, we
+                            offer a
+                            wide variety of cakes to suit every mood and moment. Our team prepares each order with care
+                            and passion,
+                            ensuring you get the perfect cake to make your occasion extra special.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row g-4">
+                <div class="col-lg-6 col-md-12">
+                    <div class="p-4 border rounded h-100">
+                        <h2>🌟 Our Description</h2>
+                        <p>
+                            This website is dedicated to exploring the sweet journey of cakes — from their ancient
+                            origins to
+                            the delightful creations we enjoy today. Here you’ll find a brief history of cake. Whether
+                            you’re
+                            curious about traditions, recipes, or simply love desserts, this site celebrates the
+                            timeless joy of cake.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="p-4 border rounded h-100">
+                        <h2>🌟 Our History</h2>
+                        <p>
+                            Cake has been enjoyed since ancient times. Egyptians made sweet bread with honey, while
+                            Greeks and Romans
+                            added nuts and used yeast. By the 17th century, cakes in Europe became richer with butter,
+                            eggs, and fine
+                            flour. The invention of baking powder in the 19th century made cakes light and fluffy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Products by Event Page -->
+    <section id="events">
+
+        <h2>Products by Event</h2>
+        <hr class="line">
+
+        <!-- Sub-navigation -->
+        <nav class="event-nav">
+            <a href="#birthday">Birthday</a>
+            <a href="#anniversary">Anniversary</a>
+            <a href="#engagement">Engagement</a>
+            <a href="#marriage">Marriage</a>
+            <!-- Add more events as needed -->
+        </nav>
+
+        <!-- Birthday Section -->
+        <div id="birthday" class="event-section">
+            <h3>Birthday Cakes</h3>
+            <div class="card-container">
+                <!-- Product Card -->
+                <div class="product-cards">
+                    <img src="chocolate blast cake.jpg" alt="Birthday Cake">
+                    <h4>Chocolate blast Cake</h4>
+                    <p><strong>Item Code:</strong> BD001</p>
+                    <p><strong>Price:</strong> Rs. 1200</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="birthday-Confetti Delight.webp" alt="Birthday Cake">
+                    <h4>Confetti Delight Cake</h4>
+                    <p><strong>Item Code:</strong> BD001</p>
+                    <p><strong>Price:</strong> Rs. 1200</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="unicorn fantasy.jpg" alt="Birthday Cake">
+                    <h4>Unicorn Fantasy Cake</h4>
+                    <p><strong>Item Code:</strong> BD001</p>
+                    <p><strong>Price:</strong> Rs. 1200</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="oreo overload.jpg" alt="Birthday Cake">
+                    <h4>Oreo Overload Cake</h4>
+                    <p><strong>Item Code:</strong> BD001</p>
+                    <p><strong>Price:</strong> Rs. 1200</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anniversary Section -->
+        <div id="anniversary" class="event-section">
+            <h3>Anniversary Cakes</h3>
+            <div class="card-container">
+                <div class="product-cards">
+                    <img src="Golden Bloom Celebration Cake.jpg" alt="Anniversary Cake">
+                    <h4>Golden Bloom Cake</h4>
+                    <p><strong>Item Code:</strong> AN001</p>
+                    <p><strong>Price:</strong> Rs. 1500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="White Rose Buttercream Cake2.webp" alt="Anniversary Cake">
+                    <h4>White Rose Buttercream Cake</h4>
+                    <p><strong>Item Code:</strong> AN001</p>
+                    <p><strong>Price:</strong> Rs. 1500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="ChocolateMusicCake_2400x.webp" alt="Anniversary Cake">
+                    <h4>Chocolate Music Cake</h4>
+                    <p><strong>Item Code:</strong> AN001</p>
+                    <p><strong>Price:</strong> Rs. 1500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="Golden Petal Cake.jpg" alt="Anniversary Cake">
+                    <h4>Golden Petal Cake</h4>
+                    <p><strong>Item Code:</strong> AN001</p>
+                    <p><strong>Price:</strong> Rs. 1500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Engagement Section -->
+        <div id="engagement" class="event-section">
+            <h3>Engagement Cakes</h3>
+            <div class="card-container">
+                <div class="product-cards">
+                    <img src="butterfly bloom.jpg" alt="Engagement Cake">
+                    <h4>Chocolate Fudge Cake</h4>
+                    <p><strong>Item Code:</strong> EN001</p>
+                    <p><strong>Price:</strong> Rs. 1800</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="Blissful Union Cake.jpg" alt="Engagement Cake">
+                    <h4>Blissful Union Cake</h4>
+                    <p><strong>Item Code:</strong> EN001</p>
+                    <p><strong>Price:</strong> Rs. 1200</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="engagement part cake.webp" alt="Engagement Cake">
+                    <h4>Engagement party Cake</h4>
+                    <p><strong>Item Code:</strong> EN001</p>
+                    <p><strong>Price:</strong> Rs. 1800</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="engagement cake22.jpg" alt="Engagement Cake">
+                    <h4>Classic Engagement Cake</h4>
+                    <p><strong>Item Code:</strong> EN001</p>
+                    <p><strong>Price:</strong> Rs. 1800</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Marriage Section -->
+        <div id="marriage" class="event-section">
+            <h3>Marriage Cakes</h3>
+            <div class="card-container">
+                <div class="product-cards">
+                    <img src="wedding.jpg" alt="Marriage Cake">
+                    <h4>- Strawberry Vanilla Swirl Cake</h4>
+                    <p><strong>Item Code:</strong> MR001</p>
+                    <p><strong>Price:</strong> Rs. 2500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="velvet vow cake.jpg" alt="Marriage Cake">
+                    <h4>Velvet Vow Cake</h4>
+                    <p><strong>Item Code:</strong> MR001</p>
+                    <p><strong>Price:</strong> Rs. 2500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="dark rosee.jpg" alt="Marriage Cake">
+                    <h4>Dark Rose Cake</h4>
+                    <p><strong>Item Code:</strong> MR001</p>
+                    <p><strong>Price:</strong> Rs. 2500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+                <div class="product-cards">
+                    <img src="- Lavender Luxe.jpg" alt="Marriage Cake">
+                    <h4>Lavender Luxe Cake</h4>
+                    <p><strong>Item Code:</strong> MR001</p>
+                    <p><strong>Price:</strong> Rs. 2500</p>
+                    <p><strong>Option:</strong> Eggless / With Egg</p>
+                    <button class="zoom">Zoom</button>
+                    <button class="order">Order</button>
+                </div>
+            </div>
+        </div>
+        <div id="zoomModal" class="zoom-modal">
+            <span class="close-btn">&times;</span>
+            <img id="zoomedImg" src="" alt="Zoomed Cake">
+        </div>
+
+    </section>
+    <!-- Disclaimer & buyin procedure Section -->
+    <div class="container my-5">
+        <div class="row g-4">
+
+            <!-- Disclaimer Section -->
+            <div class="col-lg-6 col-md-12">
+                <div class="p-4 border rounded h-100">
+                    <h2>Disclaimer</h2>
+                    <p>
+                        The Cake Shop website provides information for general purposes only.
+                        While we strive to keep content accurate and updated,
+                        we make no warranties of any kind about completeness, reliability, or suitability.
+                        Any reliance you place on such information is strictly at your own risk.
+                    </p>
+                    <p>
+                        External links provided are for convenience only.
+                        The Cake Shop has no control over the content of those sites
+                        and is not responsible for their accuracy or reliability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Dummy Buying Procedure -->
+            <div class="col-lg-6 col-md-12">
+                <div class="p-4 border rounded h-100">
+                    <h2> Buying Procedure</h2>
+
+                    <!-- Step 1 -->
+                    <div class="step" id="step1">
+                        <h5>Step 1: Select Product</h5>
+                        <select id="product" class="form-select mb-3">
+                            <option value="Chocolate Cake">Chocolate Cake - Rs.1200</option>
+                            <option value="Vanilla Cake">Vanilla Cake - Rs.1000</option>
+                            <option value="Red Velvet Cake">Red Velvet Cake - Rs.1500</option>
+                        </select>
+                        <button class="btn btn-danger" onclick="nextStep(2)">Next</button>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step d-none" id="step2">
+                        <h5>Step 2: Enter Details</h5>
+                        <input type="text" id="name" class="form-control mb-2" placeholder="Name">
+                        <input type="text" id="contact" class="form-control mb-3" placeholder="Contact">
+                        <button class="btn btn-danger" onclick="nextStep(3)">Next</button>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step d-none" id="step3">
+                        <h5>Step 3: Delivery Info</h5>
+                        <input type="text" id="address" class="form-control mb-2" placeholder="Delivery Address">
+                        <input type="date" id="date" class="form-control mb-3">
+                        <button class="btn btn-danger" onclick="nextStep(4)">Next</button>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step d-none" id="step4">
+                        <h5>Step 4: Review Order</h5>
+                        <p id="review"></p>
+                        <button class="btn btn-success" onclick="nextStep(5)">Confirm Order</button>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step d-none" id="step5">
+                        <h5>Confirmation</h5>
+                        <p class="text-success">
+                            ✅ Your dummy order has been placed successfully! (Simulation only)
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Footer Section -->
+    <footer class="footer" id="footerr">
+        <div class="footer-container">
+
+            <!-- Site Map -->
+            <div class="footer-box">
+                <h3>Site Map</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#events">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+
+
+
+                </ul>
+            </div>
+
+            <!-- Branches -->
+            <div class="footer-box">
+                <h3>Our Branches</h3>
+                <ul>
+                    <li>📍 Karachi - Main Branch</li>
+                    <li>📍 Lahore - Gulberg</li>
+                    <li>📍 Islamabad - F-10</li>
+                </ul>
+            </div>
+
+            <!-- Contact Us -->
+            <div class="footer-box">
+                <h3>Contact Us</h3>
+                <p>📞 +92-300-1234567</p>
+                <p>✉️ info@cakeshop.com</p>
+                <p>⏰ Mon–Sat: 10am – 10pm</p>
+            </div>
+
+            <!-- Google Map -->
+            <div class="footer-box">
+                <h3>Find Us</h3>
+                <!-- Google Map Embed -->
+                 <div class="ratio ratio-16x9">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.0!2d67.0011!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDUxJzM4LjUiTiA2N8KwMDAnMDQuMCJF!5e0!3m2!1sen!2s!4v1234567890"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Social Media -->
+        <div class="social-links">
+            <a href="#">🌐 Facebook</a>
+            <a href="#">📸 Instagram</a>
+            <a href="#">🐦 Twitter</a>
+            <a href="#">▶ YouTube</a>
+        </div>
+
+        <p class="footer-copy">
+            © 2026 The Cake Shop. All Rights Reserved.
+        </p>
+    </footer>
+
+    <!-- JS -->
+    <script>
+        // js next & prev function
+        const scroll = document.querySelector('.scroll');
+        document.querySelector('.next').onclick = () =>
+            scroll.scrollBy({ left: 240, behavior: 'smooth' });
+        document.querySelector('.prev').onclick = () =>
+            scroll.scrollBy({ left: -240, behavior: 'smooth' });
+        function openZoom(src) {
+            window.open(imgSrc, "_blank", "width=800,height=600");
+        }
+        // JavaScript Zoom Function
+        document.querySelectorAll(".zoom").forEach(button => {
+            button.addEventListener("click", function () {
+                const img = this.parentElement.querySelector("img");
+                const modal = document.getElementById("zoomModal");
+                const zoomedImg = document.getElementById("zoomedImg");
+                zoomedImg.src = img.src;
+                modal.style.display = "block";
+            });
+        });
+
+        // Close Modal
+        document.querySelector(".close-btn").addEventListener("click", function () {
+            document.getElementById("zoomModal").style.display = "none";
+        });
+
+        // Close when clicking outside image
+        document.getElementById("zoomModal").addEventListener("click", function (e) {
+            if (e.target === this) {
+                this.style.display = "none";
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+            const imgs = document.querySelectorAll(".product-card img.zoomable");
+
+            imgs.forEach(img => {
+                img.style.cursor = "pointer";
+                img.addEventListener("click", () => {
+                    // use _blank to open in new tab; more consistent than window features
+                    window.open(img.src, "_blank");
+                });
+            });
+        });
+
+
+
+        function enableOrderFormPopup() {
+            const orderButtons = document.querySelectorAll('.order');
+
+            orderButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    window.open('purchase form.html', '_blank', 'width=800,height=600');
+                });
+            });
+        }
+
+        // Call the function
+        enableOrderFormPopup();
+
+
+        function openCreateAccountForm() {
+            window.open('create account.html', '_blank', 'width=600,height=700');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        function enableReadMore() {
+            const readMoreButtons = document.querySelectorAll('.readmore');
+            const homeSection = document.querySelector('.home');
+
+            readMoreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Show home section
+                    homeSection.style.display = 'block';
+                    // Smooth scroll to home section
+                    homeSection.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        }
+
+        // Call the function
+        enableReadMore();
+
+        function nextStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.add('d-none'));
+            document.getElementById('step' + step).classList.remove('d-none');
+
+            if (step === 4) {
+                document.getElementById('review').innerHTML =
+                    `<strong>Product:</strong> ${product.value}<br>
+       <strong>Name:</strong> ${name.value}<br>
+       <strong>Contact:</strong> ${contact.value}<br>
+       <strong>Address:</strong> ${address.value}<br>
+       <strong>Date:</strong> ${date.value}`;
+            }
+        }
+
+
+
+
+
+
+    </script>
+
+    <!-- bootstrap js -->
+    <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
